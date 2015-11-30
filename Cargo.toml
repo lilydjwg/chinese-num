@@ -2,7 +2,7 @@
 name = "chinese-num"
 version = "0.1.0"
 authors = ["lilydjwg <lilydjwg@gmail.com>"]
-license = "BSD"
+license = "BSD-3-Clause"
 description = "Convert a decimal number to its Chinese form"
 keywords = ["Chinese", "number", "digit"]
 homepage = "https://github.com/lilydjwg/chinese-num"
