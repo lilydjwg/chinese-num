@@ -10,3 +10,6 @@ documentation = "https://lilydjwg.github.io/chinese-num/"
 repository = "https://github.com/lilydjwg/chinese-num"
 
 [dependencies]
+
+[profile.release]
+lto = true
