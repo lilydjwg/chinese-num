@@ -110,17 +110,17 @@ pub fn to_chinese_num<N: AsRef<str>>(n: N) -> Option<String> {
 }
 
 pub trait ToChineseNum {
-  fn to_chinese_num(&self) -> Option<String>;
-}
-
-impl ToChineseNum for usize {
-  /// # Examples
+  /// A trait adding a `to_chinese_num` method to types, e.g.:
   ///
   /// ```
   /// use chinese_num::ToChineseNum;
   ///
   /// assert_eq!(20.to_chinese_num(), Some(String::from("二十")));
   /// ```
+  fn to_chinese_num(&self) -> Option<String>;
+}
+
+impl ToChineseNum for usize {
   fn to_chinese_num(&self) -> Option<String> {
     to_chinese_num(self.to_string())
   }
