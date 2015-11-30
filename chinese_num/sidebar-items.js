@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["to_chinese_num",""]]});
+initSidebarItems({"fn":[["to_chinese_num",""]],"trait":[["ToChineseNum",""]]});
