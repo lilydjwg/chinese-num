@@ -1,12 +1,15 @@
 [package]
 name = "chinese-num"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["lilydjwg <lilydjwg@gmail.com>"]
 license = "BSD-3-Clause"
 description = "Convert a decimal number to its Chinese form"
 keywords = ["Chinese", "number", "digit"]
 homepage = "https://github.com/lilydjwg/chinese-num"
-documentation = "https://lilydjwg.github.io/chinese-num"
+documentation = "https://lilydjwg.github.io/chinese-num/"
 repository = "https://github.com/lilydjwg/chinese-num"
 
 [dependencies]
+
+[profile.release]
+lto = true

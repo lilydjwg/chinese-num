@@ -87,8 +87,6 @@ pub fn to_chinese_num<N: AsRef<str>>(n: N) -> Option<String> {
   // special cases
   if n == "0" {
     return Some("零".to_owned());
-  } else if n == "10" {
-    return Some("十".to_owned());
   }
 
   // non-digit found, nothing, leading zeros
@@ -104,6 +102,9 @@ pub fn to_chinese_num<N: AsRef<str>>(n: N) -> Option<String> {
   let mut r = v.0;
   if r.chars().last().unwrap() == '个' {
     r.pop();;
+  }
+  if r.starts_with("一十") {
+    r.remove(0);
   }
   Some(r)
 }
@@ -147,6 +148,12 @@ fn num_1() {
 fn num_10() {
   let s = to_chinese_num("10").unwrap();
   assert_eq!(s, "十");
+}
+
+#[test]
+fn num_12() {
+  let s = to_chinese_num("12").unwrap();
+  assert_eq!(s, "十二");
 }
 
 #[test]
