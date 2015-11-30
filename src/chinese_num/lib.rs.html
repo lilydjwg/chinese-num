@@ -315,14 +315,14 @@
   <span class='prelude-val'>Some</span>(<span class='ident'>r</span>)
 }
 
+<span class='doccomment'>/// A trait adding a `to_chinese_num` method to types, e.g.:</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// ```</span>
+<span class='doccomment'>/// use chinese_num::ToChineseNum;</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// assert_eq!(20.to_chinese_num(), Some(String::from(&quot;二十&quot;)));</span>
+<span class='doccomment'>/// ```</span>
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>ToChineseNum</span> {
-  <span class='doccomment'>/// A trait adding a `to_chinese_num` method to types, e.g.:</span>
-  <span class='doccomment'>///</span>
-  <span class='doccomment'>/// ```</span>
-  <span class='doccomment'>/// use chinese_num::ToChineseNum;</span>
-  <span class='doccomment'>///</span>
-  <span class='doccomment'>/// assert_eq!(20.to_chinese_num(), Some(String::from(&quot;二十&quot;)));</span>
-  <span class='doccomment'>/// ```</span>
   <span class='kw'>fn</span> <span class='ident'>to_chinese_num</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span>;
 }
 

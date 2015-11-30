@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["to_chinese_num",""]],"trait":[["ToChineseNum",""]]});
+initSidebarItems({"fn":[["to_chinese_num",""]],"trait":[["ToChineseNum","A trait adding a `to_chinese_num` method to types, e.g.:"]]});
