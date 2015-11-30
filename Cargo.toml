@@ -1,6 +1,6 @@
 [package]
 name = "chinese-num"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["lilydjwg <lilydjwg@gmail.com>"]
 license = "BSD-3-Clause"
 description = "Convert a decimal number to its Chinese form"
