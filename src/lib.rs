@@ -81,7 +81,9 @@ fn append_digit(result: ResultS, tuple: (usize, char)) -> ResultS {
   }
 }
 
-pub fn to_chinese_num(n: &str) -> Option<String> {
+pub fn to_chinese_num<N: AsRef<str>>(n: N) -> Option<String> {
+  let n = n.as_ref();
+
   // special cases
   if n == "0" {
     return Some("零".to_owned());
@@ -104,6 +106,23 @@ pub fn to_chinese_num(n: &str) -> Option<String> {
     r.pop();;
   }
   Some(r)
+}
+
+pub trait ToChineseNum {
+  fn to_chinese_num(&self) -> Option<String>;
+}
+
+impl ToChineseNum for usize {
+  /// # Examples
+  ///
+  /// ```
+  /// use chinese_num::ToChineseNum;
+  ///
+  /// assert_eq!(20.to_chinese_num(), Some(String::from("二十")));
+  /// ```
+  fn to_chinese_num(&self) -> Option<String> {
+    to_chinese_num(self.to_string())
+  }
 }
 
 #[test]
