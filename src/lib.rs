@@ -42,9 +42,9 @@
 //! The algorithm is taken from here:
 //! http://zhuanlan.zhihu.com/iobject/20370983.
 
-const DIGITS: &'static str = "零一二三四五六七八九";
-const TENS_NAME: &'static str = "个十百千";
-const UNIT_RANK: &'static str = "个十百千万亿";
+const DIGITS: [char; 10] = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+const TENS_NAME: [char; 4] = ['个', '十', '百', '千'];
+const UNIT_RANK: [char; 6] = ['个', '十', '百', '千', '万', '亿'];
 
 fn digit_pos_to_name(pos: usize) -> char {
   if pos == 0 {
@@ -54,18 +54,23 @@ fn digit_pos_to_name(pos: usize) -> char {
   } else if pos % 4 == 0 {
     '万'
   } else {
-    TENS_NAME.chars().nth(pos % 4).unwrap()
+    TENS_NAME[pos % 4]
   }
 }
 
 struct ResultS (String, bool, char);
 
+#[inline]
+fn get_unit_rank(u: char) -> usize {
+  UNIT_RANK.iter().position(|&x| x == u).unwrap()
+}
+
 fn append_digit(result: ResultS, tuple: (usize, char)) -> ResultS {
   let (digit, this_unit) = tuple;
   let ResultS(mut result, pending_zero, last_unit) = result;
-  let this_str = DIGITS.chars().nth(digit).unwrap();
+  let this_str = DIGITS[digit];
   if digit == 0 {
-    if UNIT_RANK.find(last_unit).unwrap() > UNIT_RANK.find(this_unit).unwrap() {
+    if get_unit_rank(last_unit) > get_unit_rank(this_unit) {
       ResultS(result, true, last_unit)
     } else {
       result.push(this_unit);
